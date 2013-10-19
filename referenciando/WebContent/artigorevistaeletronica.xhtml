@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Referenciando</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Referências biblíograficas" />
+    <meta name="author" content="Alexandre Custódio, Rafael Soratto, Samara Pereira Anderson Pereira" />
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="assets/css/docs.css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico" />
+</h:head>
+<h:body>
+	<h:form id="mainForm">
+		<!-- Navbar -->
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="./">Referenciando</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li>
+								<a href="./referencialivro.jsf">Livros</a>
+							</li>
+							<li class="active">
+								<a href="./artigorevistaeletronica.jsf">Revista eletrônica</a>
+							</li>
+							<li>
+								<a href="./sitereferencia.jsf">Sites</a>
+							</li>
+								<li class="divider-vertical"></li>
+							<li>
+								<a href="./minhasreferencias.jsf">Minhas referências</a>   
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	   	<div class="container">
+			<header class="jumbotron subhead" id="overview">
+				<h1>Revista Eletrônica</h1>
+			</header>
+
+			<p:notificationBar id="barReference" position="top" effect="slide" widgetVar="bar" styleClass="top" autoDisplay="#{revistaEletronicaBean.referenceSucess}">
+    			<h:outputText value="#{revistaEletronicaBean.referenceBefore}" /> 
+    			<b><h:outputText value="#{revistaEletronicaBean.nomeRevista}" /></b> 
+    			<h:outputText value="#{revistaEletronicaBean.referenceAfter}" />
+    			<br/>
+    			<br/>
+    			<p:separator/>
+    			<p:commandButton value="Esconder Barra" onclick="bar.hide()" />  
+			</p:notificationBar> 
+
+			<p:messages id="messages" showDetail="true" showSummary="false" autoUpdate="true"/>
+	
+			<div class="row-fluid">
+				<div class="span12">
+					<label><h:outputText value="Título "/></label>
+					<p:inputMask id="titulo" value="#{revistaEletronicaBean.titulo}" styleClass="span12" />				
+				</div>
+			</div>
+	
+			<div class="row-fluid">
+				<div class="span6">
+					<label><h:outputText value="Nome do autor "/><span class="textHelp">(opcional)</span></label>
+					<p:inputText id="nomeAutor" value="#{revistaEletronicaBean.nome}" styleClass="span12" />
+				</div>
+				<div class="span6">
+					<label><h:outputText value="Sobrenome do autor "/><span class="textHelp">(opcional)</span></label>
+					<p:inputText id="sobrenomeAutor" value="#{revistaEletronicaBean.sobrenome}" styleClass="span12" />
+				</div>
+			</div>
+	
+			<div class="row-fluid">
+				<div class="span6">
+					<label><h:outputText value="Nome da revista "/></label>
+					<p:inputText value="#{revistaEletronicaBean.nomeRevista}" styleClass="span12" />				
+				</div>
+				<div class="span6">
+					<label><h:outputText value="Local da revista "/></label>
+					<p:inputText value="#{revistaEletronicaBean.localRevista}" styleClass="span12" />
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span3">
+					<label><h:outputText value="Mês da publicação: "/></label>
+					<p:selectOneMenu value="#{revistaEletronicaBean.mes}" effect="fade">  
+		           		<f:selectItem itemLabel="-- Selecione um --" itemValue="" />  
+		           		<f:selectItem itemLabel="Janeiro" itemValue="jar" />
+		           		<f:selectItem itemLabel="Fevereiro" itemValue="fev" />
+		           		<f:selectItem itemLabel="Março" itemValue="mar" />
+		           		<f:selectItem itemLabel="Abril" itemValue="abr" />
+		           		<f:selectItem itemLabel="Maio" itemValue="mai" />
+		           		<f:selectItem itemLabel="Junho" itemValue="jun" />
+		           		<f:selectItem itemLabel="Julho" itemValue="jul" />
+		           		<f:selectItem itemLabel="Agosto" itemValue="ago" />
+		           		<f:selectItem itemLabel="Setembro" itemValue="set" />
+		           		<f:selectItem itemLabel="Outubro" itemValue="out" />
+		           		<f:selectItem itemLabel="Novembro" itemValue="nov" />
+		           		<f:selectItem itemLabel="Dezembro" itemValue="dez" />  
+		       		</p:selectOneMenu>
+				</div>
+				<div class="span3">
+					<label><h:outputText value="Ano da publicação: "/></label>
+					<p:inputMask maxlength="4" size="4" mask="9999" value="#{revistaEletronicaBean.anoPublicacao}" styleClass="span12" />					
+				</div>
+				<div class="span6">
+					<label><h:outputText value="Seção da revista "/></label>
+					<p:inputText value="#{revistaEletronicaBean.secaoRevista}" styleClass="span12" />
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span9">
+					<label><h:outputText value="Site da revista "/></label>
+					<p:inputText value="#{revistaEletronicaBean.site}" styleClass="span12" />
+				</div>
+				<div class="span3">
+					<label><h:outputText value="Data de acesso "/></label>
+					<p:calendar value="#{revistaEletronicaBean.dataAcesso}" id="dateCal" showOn="button" onkeypress="return 'false'" pattern="dd/MM/yyyy" maxlength="10" converterMessage="Data em um formato inválido. EX:22/06/2010" >
+						<f:convertDateTime pattern="dd/MM/yyyy" for="dateCal" type="date" />
+					</p:calendar>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span12">
+					<p:commandButton id="btGerarReferencia" value="Gerar referência" actionListener="#{revistaEletronicaBean.gerarReferencia}" update="barReference" />
+				</div>
+			</div>
+
+			<footer class="footer">
+				<p class="pull-right"><a href="#">Ir para o topo</a></p>
+				<h3>
+					<p>Desenvolvido pelos acâdemicos da UNESC: Alexandre Custódio, Anderson Pereira, Rafael Soratto, Samara Pereira.</p>
+					<p>Professor orientador: Luciano Antunes.</p>
+				</h3>
+				<img src="img/logo_unesc1.png" />
+				<img src="img/logo_cc1.png" />
+				<img src="img/logo_kiron1.png" />
+				<img src="img/logo_referenciando.jpg" style="width: 130px;" />
+			</footer>
+		</div><!-- /container -->
+	</h:form>
+
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/google-code-prettify/prettify.js"></script>
+	<script src="assets/js/bootstrap-transition.js"></script>
+	<script src="assets/js/bootstrap-alert.js"></script>
+	<script src="assets/js/bootstrap-modal.js"></script>
+	<script src="assets/js/bootstrap-dropdown.js"></script>
+	<script src="assets/js/bootstrap-scrollspy.js"></script>
+	<script src="assets/js/bootstrap-tab.js"></script>
+	<script src="assets/js/bootstrap-tooltip.js"></script>
+	<script src="assets/js/bootstrap-popover.js"></script>
+	<script src="assets/js/bootstrap-button.js"></script>
+	<script src="assets/js/bootstrap-collapse.js"></script>
+	<script src="assets/js/bootstrap-carousel.js"></script>
+	<script src="assets/js/bootstrap-typeahead.js"></script>
+	<script src="assets/js/application.js"></script>
+
+</h:body>
+</html>

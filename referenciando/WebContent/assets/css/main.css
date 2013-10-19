@@ -1,0 +1,35 @@
+.ui-datepicker-trigger { margin: -9px 0 0 4px; }
+
+.textHelp { color: #99937F; }
+
+label { color: #4A86A6; }
+
+input { font-weight: normal !important; }
+
+.ui-selectonemenu { width: 100% !important; }
+
+	.ui-selectonemenu select,
+	.ui-selectonemenu input {
+		margin-bottom: 0 !important;
+	}
+
+.ui-notificationbar {
+	top:auto !important;
+	bottom: 0 !important;
+}
+.ui-notificationbar {
+
+background-image: linear-gradient(bottom, rgb(231,225,212) 31%, rgb(247,241,228) 66%);
+background-image: -o-linear-gradient(bottom, rgb(231,225,212) 31%, rgb(247,241,228) 66%);
+background-image: -moz-linear-gradient(bottom, rgb(231,225,212) 31%, rgb(247,241,228) 66%);
+background-image: -webkit-linear-gradient(bottom, rgb(231,225,212) 31%, rgb(247,241,228) 66%);
+background-image: -ms-linear-gradient(bottom, rgb(231,225,212) 31%, rgb(247,241,228) 66%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.31, rgb(231,225,212)),
+	color-stop(0.66, rgb(247,241,228))
+);
+}

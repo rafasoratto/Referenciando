@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="referenciando">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
+        <dependent-module archiveName="javax.faces-2.1.9.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/javax.faces-2.1.9/javax.faces-2.1.9">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsf-api.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jsf-api/jsf-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="primefaces-3.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/primefaces-3.2/primefaces-3.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsf-impl.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jsf-impl/jsf-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="referenciando"/>
+        <property name="java-output-path" value="/referenciando/build/classes"/>
+    </wb-module>
+</project-modules>
